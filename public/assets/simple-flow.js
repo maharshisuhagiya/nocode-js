@@ -39,11 +39,10 @@ const configuration = {
         },
         stepEditorProvider: (step) => {
             const editor = document.createElement('div');
-            if(step.type == "replayMessage")
-            {
+            if (step.type == "replayMessage") {
                 const label = document.createElement('label');
                 label.innerText = 'Select Type';
-    
+
                 const dropdown = document.createElement('select');
                 dropdown.setAttribute('id', 'selectType');
                 const options = step.properties['selectType'];
@@ -53,12 +52,12 @@ const configuration = {
                     optionElem.text = option;
                     dropdown.appendChild(optionElem);
                 }
-    
+
                 // Set the initial selected value based on previous selection
                 if (selectTypeSelectedVal) {
                     dropdown.value = selectTypeSelectedVal;
                 }
-    
+
                 dropdown.addEventListener('change', () => {
                     selectTypeSelectedVal = dropdown.value; // Update selected value
                     const selectedType = dropdown.value;
@@ -66,7 +65,7 @@ const configuration = {
                     editor.querySelectorAll('input').forEach(input => input.remove());
                     editor.querySelectorAll('label:not(:first-of-type)').forEach(label => label
                         .remove());
-    
+
                     if (selectedType === 'Text Replay') {
                         // Show input field for text reply
                         const textInputLabel = document.createElement('label');
@@ -74,7 +73,7 @@ const configuration = {
                         const inputField = document.createElement('input');
                         inputField.setAttribute('type', 'text');
                         inputField.placeholder = 'Enter Text Reply';
-                        inputField.value = step.properties['textReplay']|| '';
+                        inputField.value = step.properties['textReplay'] || '';
                         inputField.addEventListener('input', () => {
                             step.properties['textReplay'] = inputField.value;
                         });
@@ -82,7 +81,7 @@ const configuration = {
                         editor.appendChild(inputField);
                     } else if (selectedType === 'Text + Quick Reply') {
                         // Show input fields for text and quick reply
-    
+
                         const contentTypeLabel = document.createElement('label');
                         contentTypeLabel.innerText = 'Content Type';
                         const contentTypeInput = document.createElement('input');
@@ -92,7 +91,7 @@ const configuration = {
                         contentTypeInput.addEventListener('input', () => {
                             step.properties['contentType'] = contentTypeInput.value;
                         });
-    
+
                         const titleLabel = document.createElement('label');
                         titleLabel.innerText = 'Title';
                         const titleInput = document.createElement('input');
@@ -102,7 +101,7 @@ const configuration = {
                         titleInput.addEventListener('input', () => {
                             step.properties['title'] = titleInput.value;
                         });
-    
+
                         const payloadLabel = document.createElement('label');
                         payloadLabel.innerText = 'Payload';
                         const payloadInput = document.createElement('input');
@@ -112,7 +111,7 @@ const configuration = {
                         payloadInput.addEventListener('input', () => {
                             step.properties['payload'] = payloadInput.value;
                         });
-    
+
                         const imageUrlLabel = document.createElement('label');
                         imageUrlLabel.innerText = 'Image URL';
                         const imageUrlInput = document.createElement('input');
@@ -122,7 +121,7 @@ const configuration = {
                         imageUrlInput.addEventListener('input', () => {
                             step.properties['imageUrl'] = imageUrlInput.value;
                         });
-    
+
                         editor.appendChild(contentTypeLabel);
                         editor.appendChild(contentTypeInput);
                         editor.appendChild(titleLabel);
@@ -131,10 +130,10 @@ const configuration = {
                         editor.appendChild(payloadInput);
                         editor.appendChild(imageUrlLabel);
                         editor.appendChild(imageUrlInput);
-    
+
                     } else if (selectedType === 'Products') {
                         // Show input fields for products
-    
+
                         const titleLabel = document.createElement('label');
                         titleLabel.innerText = 'Title';
                         const titleInput = document.createElement('input');
@@ -144,7 +143,7 @@ const configuration = {
                         titleInput.addEventListener('input', () => {
                             step.properties['productTitle'] = titleInput.value;
                         });
-    
+
                         const imageUrlLabel = document.createElement('label');
                         imageUrlLabel.innerText = 'Image URL';
                         const imageUrlInput = document.createElement('input');
@@ -154,7 +153,7 @@ const configuration = {
                         imageUrlInput.addEventListener('input', () => {
                             step.properties['productImageUrl'] = imageUrlInput.value;
                         });
-    
+
                         const subtitleLabel = document.createElement('label');
                         subtitleLabel.innerText = 'Subtitle';
                         const subtitleInput = document.createElement('input');
@@ -164,7 +163,7 @@ const configuration = {
                         subtitleInput.addEventListener('input', () => {
                             step.properties['productSubtitle'] = subtitleInput.value;
                         });
-    
+
                         const defaultActionLabel = document.createElement('label');
                         defaultActionLabel.innerText = 'Default Action';
                         const defaultActionInput = document.createElement('input');
@@ -172,10 +171,9 @@ const configuration = {
                         defaultActionInput.placeholder = 'Enter Default Action';
                         defaultActionInput.value = step.properties['productDefaultAction'] || ''; // Set value if exists
                         defaultActionInput.addEventListener('input', () => {
-                            step.properties['productDefaultAction'] = defaultActionInput
-                                .value;
+                            step.properties['productDefaultAction'] = defaultActionInput.value;
                         });
-    
+
                         const typeLabel = document.createElement('label');
                         typeLabel.innerText = 'Type';
                         const typeInput = document.createElement('input');
@@ -185,7 +183,7 @@ const configuration = {
                         typeInput.addEventListener('input', () => {
                             step.properties['productType'] = typeInput.value;
                         });
-    
+
                         const urlLabel = document.createElement('label');
                         urlLabel.innerText = 'URL';
                         const urlInput = document.createElement('input');
@@ -195,7 +193,7 @@ const configuration = {
                         urlInput.addEventListener('input', () => {
                             step.properties['productUrl'] = urlInput.value;
                         });
-    
+
                         const buttonsLabel = document.createElement('label');
                         buttonsLabel.innerText = 'Buttons';
                         const buttonsInput = document.createElement('input');
@@ -205,7 +203,7 @@ const configuration = {
                         buttonsInput.addEventListener('input', () => {
                             step.properties['productButtons'] = buttonsInput.value;
                         });
-    
+
                         editor.appendChild(titleLabel);
                         editor.appendChild(titleInput);
                         editor.appendChild(imageUrlLabel);
@@ -222,18 +220,15 @@ const configuration = {
                         editor.appendChild(buttonsInput);
                     }
                 });
-    
+
                 editor.appendChild(label);
                 editor.appendChild(dropdown);
-    
+
                 // Trigger change event to show the first option's input fields by default
                 dropdown.dispatchEvent(new Event('change'));
-            }
-            else
-            {
-                
-            }
+            } else {
 
+            }
 
             return editor;
         }
@@ -268,7 +263,7 @@ function runWorkflow() {
             console.log(register);
         }
     }
-    
+
     // Clear input values from input boxes
     const inputFields = document.querySelectorAll('input[type="text"]');
     inputFields.forEach(input => {
