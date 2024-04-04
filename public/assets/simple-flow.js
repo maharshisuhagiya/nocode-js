@@ -11,16 +11,13 @@ const configuration = {
                     name: 'Reply Message',
                     properties: {
                         selectType: ["Text Replay", "Text + Quick Reply", "Products"],
-                        // textReplay: 'Enter Your Replay'
                     }
                 },
                 {
                     componentType: 'task',
-                    type: 'sendEmail',
+                    type: 'notificationMessage',
                     name: 'Notification Message',
                     properties: {
-                        ifReqisterEquals: '1',
-                        email: 'x@example.com',
                         selectType: ["Text Replay", "Text + Quick Reply", "Products"],
                     }
                 }
@@ -267,9 +264,6 @@ function runWorkflow() {
     for (const step of definition.sequence) {
         console.log(step);
         if (step.type === 'replayMessage') {
-            register = step.properties['textReplay'];
-            console.log(register);
-        } else if (step.type === 'sendEmail') {
             register = step.properties['textReplay'];
             console.log(register);
         }
