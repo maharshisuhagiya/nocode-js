@@ -18,3 +18,5 @@ Route::get('/', function () {
 });
 
 Route::view('text-replay', 'text-replay');
+Route::view('text-or-quick-replay', 'text-or-quick-replay');
+Route::view('product-replay', 'product-replay');
