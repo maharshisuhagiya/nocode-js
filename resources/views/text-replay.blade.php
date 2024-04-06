@@ -4,10 +4,10 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-	<title>📐 Simple Flow Example - Sequential Workflow Designer</title>
-	<meta property="og:title" content="📐 Simple Flow Example - Sequential Workflow Designer">
-	<meta name="description" content="Simple example of Sequential Workflow Designer.">
-	<meta property="og:description" content="Simple example of Sequential Workflow Designer.">
+	<title>📐 Text Replay - Sequential Workflow Designer</title>
+	<meta property="og:title" content="📐 Text Replay - Sequential Workflow Designer">
+	<meta name="description" content="Text Replay of Sequential Workflow Designer.">
+	<meta property="og:description" content="Text Replay of Sequential Workflow Designer.">
 	<meta property="og:image" content="https://nocode-js.com/img/social-card.png">
 	<meta name="twitter:card" content="summary_large_image">
 	<meta name="twitter:image" content="https://nocode-js.com/img/social-card.png">
@@ -25,7 +25,7 @@
 <body>
 	<header class="title-bar">
 		<div class="column flex-1 hidden-mobile">
-			<h1>📐 Simple Flow Example</h1>
+			<h1>📐 Text Replay</h1>
 		</div>
 		<div class="column">
 			<button id="run">Run</button>
@@ -38,6 +38,6 @@
 	<div id="designer"></div>
 
 	<script src="{{ asset('assets/lib.js') }}"></script>
-	<script src="{{ asset('assets/simple-flow.js') }}"></script>
+	<script src="{{ asset('assets/text-replay.js') }}"></script>
 </body>
 </html>

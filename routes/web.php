@@ -17,4 +17,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::view('simple-flow', 'simple-flow');
+Route::view('text-replay', 'text-replay');
